@@ -22,5 +22,7 @@ public class Peopls {
     public static void main(String[] arg) {
         Peopls chelik = new Peopls("Андрей", "Павук", 21);
         chelik.run();
+        chelik.voice();
+        chelik.walk();
     }
 }
