@@ -1,14 +1,13 @@
 import javax.swing.*;
 import javax.swing.plaf.basic.BasicOptionPaneUI.ButtonActionListener;
-
 import java.awt.*;
 import java.awt.event.*;
-import java.beans.DesignMode;
 class Calculator extends Frame {
     Calculator(String s) {
         super(s);
         setSize(400, 600);
         setLayout(new FlowLayout());
+
         Label labelA = new Label("a");
         Label labelP = new Label("+");
         Label labelB = new Label("b");
@@ -51,6 +50,26 @@ class Calculator extends Frame {
                 result = num1+num2;
                 textFieldS.setText(String.valueOf(result));
         }
+        });
+
+        buttonA.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                float num1, num2, result;
+                num1 = Float.parseFloat(textFieldA.getText());
+                num2 = Float.parseFloat(textFieldB.getText());
+                String valueFromTextField = labelB.getText();
+                result = num1+num2;
+                textFieldS.setText(String.valueOf(result));
+            }
+        });
+        buttonB.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                textFieldA.setText("");
+                textFieldB.setText("");
+                textFieldS.setText("");
+            }
         });
     }
     public static void main(String[] args){
